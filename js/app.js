@@ -79,6 +79,7 @@ const bookingSection = document.getElementById("bookingSection");
 const bookingList = document.getElementById("bookingList");
 const bookingEmptyState = document.getElementById("bookingEmptyState");
 const adminLink = document.getElementById("adminLink");
+const adminLinkMobile = document.getElementById("adminLinkMobile");
 const installButton = document.getElementById("installButton");
 let deferredPrompt = null;
 
@@ -887,7 +888,9 @@ function showLoggedInTools() {
     if (!confirmed) return;
     await signOut(auth);
   };
-  adminLink.classList.toggle("hidden", !(currentUserProfile?.role === "admin"));
+  const isAdmin = currentUserProfile?.role === "admin";
+  adminLink.classList.toggle("hidden", !isAdmin);
+  adminLinkMobile.classList.toggle("hidden", !isAdmin);
 }
 
 function showLoggedOutTools() {
@@ -900,6 +903,7 @@ function showLoggedOutTools() {
     authPanel.classList.add("flex");
   };
   adminLink.classList.add("hidden");
+  adminLinkMobile.classList.add("hidden");
 }
 
 async function updateUserState(user) {
