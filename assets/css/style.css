@@ -28,6 +28,7 @@ input,
 textarea,
 select {
   font: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 
 button {
@@ -95,4 +96,48 @@ img.cover {
 .calendar-day.in-range {
   background-color: #e2e8f0;
   color: #0f172a;
+}
+
+/* Modal styles */
+.modal-overlay {
+  display: none;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 2.5rem !important;
+  }
+  
+  h2 {
+    font-size: 1.75rem !important;
+  }
+  
+  /* Modal for mobile: full-screen with smaller radius */
+  .modal-content-mobile {
+    border-radius: 1.5rem !important;
+    max-height: 95vh !important;
+  }
+  
+  /* Adjust padding for modals on mobile */
+  .modal-padding-mobile {
+    padding: 1.5rem !important;
+  }
+  
+  /* Stack login/register on mobile */
+  .auth-grid-mobile {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .auth-border-mobile {
+    border-right: none !important;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-right: 0 !important;
+  }
 }
