@@ -387,7 +387,7 @@
         class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm"
       >
         <div
-          class="relative w-full max-w-3xl max-h-[90vh] overflow-hidden rounded-[2rem] bg-white shadow-2xl flex flex-col"
+          class="relative w-full max-w-3xl max-h-[90vh] overflow-hidden rounded-[2rem] bg-white shadow-2xl flex flex-col modal-content-mobile"
         >
           <button
             id="closeAuthPanel"
@@ -396,28 +396,17 @@
             ×
           </button>
           <div
-            class="grid gap-6 lg:grid-cols-2 p-6 sm:p-8 overflow-y-auto flex-1"
+            class="grid gap-6 lg:grid-cols-2 p-6 sm:p-8 overflow-y-auto flex-1 auth-grid-mobile modal-padding-mobile"
           >
-            <div class="space-y-4 border-r border-slate-200 pr-4 lg:pr-8">
+            <div
+              class="space-y-4 border-r border-slate-200 pr-4 lg:pr-8 auth-border-mobile"
+            >
               <p class="text-sm uppercase tracking-[0.24em] text-slate-500">
                 Akses cepat
               </p>
               <h2 class="text-3xl font-semibold text-slate-900">
                 Masuk atau daftar untuk booking homestay.
               </h2>
-              <p class="text-slate-600">
-                Gunakan email untuk mengelola booking Anda, melihat status, dan
-                mengakses halaman admin jika Anda adalah administrator.
-              </p>
-              <div
-                class="space-y-3 rounded-3xl bg-slate-50 p-4 text-sm text-slate-600"
-              >
-                <p>
-                  <strong>Tip:</strong> daftar dengan email yang valid untuk
-                  digunakan sebagai akun pengguna.
-                </p>
-                <p>Admin role ditentukan melalui Firestore field `role`.</p>
-              </div>
             </div>
             <div class="space-y-6">
               <div class="rounded-[1.5rem] bg-slate-50 p-6">
@@ -427,12 +416,14 @@
                     id="loginEmail"
                     type="email"
                     placeholder="Email"
+                    autocomplete="email"
                     class="w-full rounded-3xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-400"
                   />
                   <input
                     id="loginPassword"
                     type="password"
                     placeholder="Password"
+                    autocomplete="current-password"
                     class="w-full rounded-3xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-400"
                   />
                   <button
@@ -456,18 +447,21 @@
                     id="registerName"
                     type="text"
                     placeholder="Nama lengkap"
+                    autocomplete="name"
                     class="w-full rounded-3xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-400"
                   />
                   <input
                     id="registerEmail"
                     type="email"
                     placeholder="Email"
+                    autocomplete="email"
                     class="w-full rounded-3xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-400"
                   />
                   <input
                     id="registerPassword"
                     type="password"
                     placeholder="Password"
+                    autocomplete="new-password"
                     class="w-full rounded-3xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-400"
                   />
                   <button
