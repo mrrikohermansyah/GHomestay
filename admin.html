@@ -52,33 +52,33 @@
         </div>
       </header>
 
-      <main class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <div class="grid gap-6 xl:grid-cols-[1.5fr_1fr]">
-          <div class="space-y-6">
-            <div class="rounded-[2rem] bg-white p-6 shadow-sm">
+      <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div class="grid gap-5 xl:grid-cols-[1.5fr_1fr]">
+          <div class="space-y-5">
+            <div class="rounded-[2rem] bg-white p-5 sm:p-6 shadow-sm">
               <div
-                class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
+                class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
               >
                 <div>
                   <p class="text-sm uppercase tracking-[0.24em] text-slate-500">
                     Admin Panel
                   </p>
-                  <h1 class="text-3xl font-semibold text-slate-900">
+                  <h1 class="text-2xl sm:text-3xl font-semibold text-slate-900">
                     Dashboard Homestay
                   </h1>
                 </div>
                 <button
                   id="createHomestayButton"
-                  class="rounded-full bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700"
+                  class="rounded-full bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700 w-full sm:w-auto"
                 >
                   Tambah Homestay
                 </button>
               </div>
-              <div class="mt-6 grid gap-4 sm:grid-cols-3">
+              <div class="mt-5 grid gap-4 sm:grid-cols-3">
                 <div
-                  class="rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-6 shadow-sm transition-all duration-200 hover:shadow-md"
+                  class="rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-5 shadow-sm transition-all duration-200 hover:shadow-md"
                 >
-                  <div class="flex items-center justify-between mb-4">
+                  <div class="flex items-center justify-between mb-3">
                     <p class="text-sm font-medium text-slate-600">
                       Total Homestay
                     </p>
@@ -90,15 +90,15 @@
                   </div>
                   <p
                     id="statHomestay"
-                    class="text-4xl font-bold text-slate-900"
+                    class="text-3xl sm:text-4xl font-bold text-slate-900"
                   >
                     0
                   </p>
                 </div>
                 <div
-                  class="rounded-2xl border border-slate-200 bg-gradient-to-br from-blue-50 to-white p-6 shadow-sm transition-all duration-200 hover:shadow-md"
+                  class="rounded-2xl border border-slate-200 bg-gradient-to-br from-blue-50 to-white p-5 shadow-sm transition-all duration-200 hover:shadow-md"
                 >
-                  <div class="flex items-center justify-between mb-4">
+                  <div class="flex items-center justify-between mb-3">
                     <p class="text-sm font-medium text-slate-600">
                       Total Booking
                     </p>
@@ -108,14 +108,17 @@
                       📅
                     </div>
                   </div>
-                  <p id="statBooking" class="text-4xl font-bold text-slate-900">
+                  <p
+                    id="statBooking"
+                    class="text-3xl sm:text-4xl font-bold text-slate-900"
+                  >
                     0
                   </p>
                 </div>
                 <div
-                  class="rounded-2xl border border-slate-200 bg-gradient-to-br from-amber-50 to-white p-6 shadow-sm transition-all duration-200 hover:shadow-md"
+                  class="rounded-2xl border border-slate-200 bg-gradient-to-br from-amber-50 to-white p-5 shadow-sm transition-all duration-200 hover:shadow-md"
                 >
-                  <div class="flex items-center justify-between mb-4">
+                  <div class="flex items-center justify-between mb-3">
                     <p class="text-sm font-medium text-slate-600">
                       Booking Pending
                     </p>
@@ -125,57 +128,60 @@
                       ⏳
                     </div>
                   </div>
-                  <p id="statPending" class="text-4xl font-bold text-slate-900">
+                  <p
+                    id="statPending"
+                    class="text-3xl sm:text-4xl font-bold text-slate-900"
+                  >
                     0
                   </p>
                 </div>
               </div>
             </div>
 
-            <section class="rounded-[2rem] bg-white p-6 shadow-sm">
+            <section class="rounded-[2rem] bg-white p-5 sm:p-6 shadow-sm">
               <div class="flex items-center justify-between gap-3">
                 <div>
                   <p class="text-sm uppercase tracking-[0.24em] text-slate-500">
                     Listing Homestay
                   </p>
-                  <h2 class="text-2xl font-semibold text-slate-900">
+                  <h2 class="text-xl sm:text-2xl font-semibold text-slate-900">
                     Kelola homestay
                   </h2>
                 </div>
               </div>
-              <div id="homestayTable" class="mt-6 space-y-4"></div>
+              <div id="homestayTable" class="mt-5 space-y-4"></div>
             </section>
 
-            <section class="rounded-[2rem] bg-white p-6 shadow-sm">
+            <section class="rounded-[2rem] bg-white p-5 sm:p-6 shadow-sm">
               <div class="flex items-center justify-between gap-3">
                 <div>
                   <p class="text-sm uppercase tracking-[0.24em] text-slate-500">
                     Booking terbaru
                   </p>
-                  <h2 class="text-2xl font-semibold text-slate-900">
+                  <h2 class="text-xl sm:text-2xl font-semibold text-slate-900">
                     Kelola booking user
                   </h2>
                 </div>
               </div>
-              <div id="bookingTable" class="mt-6 space-y-4"></div>
+              <div id="bookingTable" class="mt-5 space-y-4"></div>
             </section>
           </div>
 
-          <div class="space-y-6">
-            <section class="rounded-[2rem] bg-white p-6 shadow-sm">
-              <div class="flex items-center justify-between mb-6">
+          <div class="space-y-5">
+            <section class="rounded-[2rem] bg-white p-5 sm:p-6 shadow-sm">
+              <div class="flex items-center justify-between mb-5">
                 <div>
                   <p
                     class="text-sm uppercase tracking-[0.24em] text-slate-500 mb-1"
                   >
                     Ringkasan visual
                   </p>
-                  <h2 class="text-2xl font-semibold text-slate-900">
+                  <h2 class="text-xl sm:text-2xl font-semibold text-slate-900">
                     Sekilas statistik
                   </h2>
                 </div>
               </div>
-              <div class="space-y-6">
+              <div class="space-y-5">
                 <div>
                   <div class="mb-3 flex items-center justify-between text-sm">
                     <span class="font-medium text-slate-700">Homestay</span>
@@ -227,12 +233,12 @@
               </div>
             </section>
 
-            <section class="rounded-[2rem] bg-white p-6 shadow-sm">
+            <section class="rounded-[2rem] bg-white p-5 sm:p-6 shadow-sm">
               <div>
                 <p class="text-sm uppercase tracking-[0.24em] text-slate-500">
                   Catatan
                 </p>
-                <h2 class="text-2xl font-semibold text-slate-900">
+                <h2 class="text-xl sm:text-2xl font-semibold text-slate-900">
                   Instruksi singkat
                 </h2>
               </div>

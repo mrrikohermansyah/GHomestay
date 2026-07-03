@@ -123,34 +123,45 @@ img {
 /* Mobile optimizations */
 @media (max-width: 640px) {
   h1 {
-    font-size: 2.5rem !important;
+    font-size: 2.25rem !important;
   }
-  
+
   h2 {
-    font-size: 1.75rem !important;
+    font-size: 1.5rem !important;
   }
-  
+
   /* Modal for mobile: full-screen with smaller radius */
   .modal-content-mobile {
-    border-radius: 1.5rem !important;
+    border-radius: 1.25rem !important;
     max-height: 95vh !important;
   }
-  
+
   /* Adjust padding for modals on mobile */
   .modal-padding-mobile {
-    padding: 1.5rem !important;
+    padding: 1.25rem !important;
   }
-  
+
   /* Stack login/register on mobile */
   .auth-grid-mobile {
     grid-template-columns: 1fr !important;
   }
-  
+
   .auth-border-mobile {
     border-right: none !important;
     border-bottom: 1px solid #e2e8f0;
-    padding-bottom: 1.5rem;
-    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
     padding-right: 0 !important;
+  }
+
+  /* Smaller padding for form elements on mobile */
+  input, button, select, textarea {
+    padding-top: 0.625rem !important;
+    padding-bottom: 0.625rem !important;
+  }
+
+  /* Reduce gap in hero card on mobile */
+  #heroCard {
+    padding: 1.25rem !important;
   }
 }

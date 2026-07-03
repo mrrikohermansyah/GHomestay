@@ -75,23 +75,23 @@
         </div>
       </header>
 
-      <main class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <section
           id="heroSection"
-          class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center"
+          class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center"
         >
-          <div class="space-y-6">
+          <div class="space-y-5">
             <p
               class="inline-flex rounded-full bg-slate-100 px-4 py-1 text-sm text-slate-700"
             >
               Modern stay experience
             </p>
             <h1
-              class="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl"
+              class="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
             >
               Sistem booking homestay elegan untuk liburan dan kerja remote.
             </h1>
-            <p class="max-w-2xl text-lg leading-8 text-slate-600">
+            <p class="text-base leading-7 text-slate-600">
               Temukan homestay minimalis dengan fasilitas lengkap, book
               langsung, dan ikuti status booking secara real-time.
             </p>
@@ -211,7 +211,7 @@
           </div>
         </section>
 
-        <section id="list" class="mt-16 space-y-6">
+        <section id="list" class="mt-12 space-y-5">
           <div
             class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
           >
@@ -219,11 +219,15 @@
               <p class="text-sm uppercase tracking-[0.24em] text-slate-500">
                 Temukan homestay
               </p>
-              <h2 class="text-3xl font-semibold tracking-tight text-slate-900">
+              <h2
+                class="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl"
+              >
                 Daftar homestay terbaik
               </h2>
             </div>
-            <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div
+              class="flex flex-col gap-3 sm:flex-row sm:items-center w-full sm:w-auto"
+            >
               <input
                 id="searchInput"
                 type="text"
@@ -243,14 +247,16 @@
 
           <div
             id="homestayGrid"
-            class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3"
+            class="grid gap-4 sm:gap-6 sm:grid-cols-2 xl:grid-cols-3"
           ></div>
           <div
             id="emptyState"
-            class="hidden rounded-3xl border border-dashed border-slate-300 bg-white p-10 text-center text-slate-500"
+            class="hidden rounded-3xl border border-dashed border-slate-300 bg-white p-6 sm:p-10 text-center text-slate-500"
           >
-            <p class="text-lg font-semibold">Tidak ada homestay ditemukan.</p>
-            <p class="mt-2">
+            <p class="text-base sm:text-lg font-semibold">
+              Tidak ada homestay ditemukan.
+            </p>
+            <p class="mt-2 text-sm sm:text-base">
               Silakan coba kata kunci lain atau tambahkan homestay melalui
               dashboard admin.
             </p>
@@ -259,16 +265,16 @@
 
         <section
           id="bookingSection"
-          class="mt-16 hidden rounded-[2rem] bg-white p-8 shadow-xl shadow-slate-200/80"
+          class="mt-12 hidden rounded-[2rem] bg-white p-6 sm:p-8 shadow-xl shadow-slate-200/80"
         >
           <div
-            class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between"
+            class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
           >
             <div>
               <p class="text-sm uppercase tracking-[0.24em] text-slate-500">
                 Booking saya
               </p>
-              <h2 class="text-2xl font-semibold text-slate-900">
+              <h2 class="text-xl sm:text-2xl font-semibold text-slate-900">
                 Riwayat dan status booking
               </h2>
             </div>
@@ -279,13 +285,13 @@
               Tutup
             </button>
           </div>
-          <div id="bookingList" class="grid gap-4"></div>
+          <div id="bookingList" class="grid gap-4 mt-6"></div>
           <div
             id="bookingEmptyState"
-            class="hidden rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-center text-slate-500"
+            class="hidden rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-6 sm:p-8 text-center text-slate-500 mt-6"
           >
-            <p class="text-lg font-semibold">Belum ada booking.</p>
-            <p class="mt-2">
+            <p class="text-base sm:text-lg font-semibold">Belum ada booking.</p>
+            <p class="mt-2 text-sm sm:text-base">
               Ayo pilih homestay dan lakukan booking pertama Anda.
             </p>
           </div>
