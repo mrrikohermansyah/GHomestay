@@ -873,7 +873,10 @@ async function renderBookingList() {
 
 // UI state functions
 function showLoggedInTools() {
-  authToggleButton.textContent = "Logout";
+  authToggleButton.innerHTML = `
+    <span class="hidden sm:inline">Logout</span>
+    <span class="sm:hidden">Logout</span>
+  `;
   authToggleButton.onclick = async () => {
     const confirmed = await confirmDialog({
       title: "Konfirmasi Logout",
@@ -888,7 +891,10 @@ function showLoggedInTools() {
 }
 
 function showLoggedOutTools() {
-  authToggleButton.textContent = "Login / Register";
+  authToggleButton.innerHTML = `
+    <span class="hidden sm:inline">Login / Register</span>
+    <span class="sm:hidden">Login</span>
+  `;
   authToggleButton.onclick = () => {
     authPanel.classList.remove("hidden");
     authPanel.classList.add("flex");
