@@ -64,6 +64,19 @@ img.cover {
   object-fit: cover;
 }
 
+/* Optimized image styles for square (1:1) aspect ratio */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure object-cover works well with square containers */
+.aspect-square img {
+  object-fit: cover;
+  object-position: center;
+}
+
 #bookingCalendar {
   max-width: 100%;
 }

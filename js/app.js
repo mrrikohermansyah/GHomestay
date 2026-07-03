@@ -234,8 +234,8 @@ function normalizeImageUrl(url) {
     ) {
       const id = extractDriveFileId(cleaned);
       if (id) {
-        // Use the thumbnail URL which is less likely to be blocked and works well for images
-        return `https://drive.google.com/thumbnail?id=${id}&sz=w2048`;
+        // Use the thumbnail URL with 1254px width (matching user's photo resolution)
+        return `https://drive.google.com/thumbnail?id=${id}&sz=w1254`;
       }
     }
 
@@ -705,7 +705,9 @@ function renderCard(homestay) {
   card.className =
     "group overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl";
   card.innerHTML = `
-    <img data-homestay-image="true" src="${primaryImage || "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80"}" alt="${homestay.name}" class="h-64 w-full object-cover transition duration-300 group-hover:scale-105" />
+    <div class="aspect-square overflow-hidden">
+      <img data-homestay-image="true" src="${primaryImage || "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80"}" alt="${homestay.name}" class="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+    </div>
     <div class="p-6">
       <div class="flex items-center justify-between gap-3">
         <div>
