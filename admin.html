@@ -52,18 +52,18 @@
         </div>
       </header>
 
-      <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <div class="grid gap-5 xl:grid-cols-[1.5fr_1fr]">
+      <main class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        <div class="grid gap-5">
           <div class="space-y-5">
-            <div class="rounded-[2rem] bg-white p-5 sm:p-6 shadow-sm">
+            <div class="rounded-[2rem] bg-white p-4 sm:p-6 shadow-sm">
               <div
                 class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
               >
                 <div>
-                  <p class="text-sm uppercase tracking-[0.24em] text-slate-500">
+                  <p class="text-xs uppercase tracking-[0.24em] text-slate-500">
                     Admin Panel
                   </p>
-                  <h1 class="text-2xl sm:text-3xl font-semibold text-slate-900">
+                  <h1 class="text-xl sm:text-3xl font-semibold text-slate-900">
                     Dashboard Homestay
                   </h1>
                 </div>
@@ -74,63 +74,63 @@
                   Tambah Homestay
                 </button>
               </div>
-              <div class="mt-5 grid gap-4 sm:grid-cols-3">
+              <div class="mt-5 grid gap-4 grid-cols-1 sm:grid-cols-3">
                 <div
-                  class="rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-5 shadow-sm transition-all duration-200 hover:shadow-md"
+                  class="rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-4 shadow-sm transition-all duration-200 hover:shadow-md"
                 >
-                  <div class="flex items-center justify-between mb-3">
-                    <p class="text-sm font-medium text-slate-600">
+                  <div class="flex items-center justify-between mb-2">
+                    <p class="text-xs font-medium text-slate-600">
                       Total Homestay
                     </p>
                     <div
-                      class="h-10 w-10 flex items-center justify-center rounded-2xl bg-slate-100 text-2xl"
+                      class="h-9 w-9 flex items-center justify-center rounded-2xl bg-slate-100 text-xl"
                     >
                       🏠
                     </div>
                   </div>
                   <p
                     id="statHomestay"
-                    class="text-3xl sm:text-4xl font-bold text-slate-900"
+                    class="text-2xl sm:text-4xl font-bold text-slate-900"
                   >
                     0
                   </p>
                 </div>
                 <div
-                  class="rounded-2xl border border-slate-200 bg-gradient-to-br from-blue-50 to-white p-5 shadow-sm transition-all duration-200 hover:shadow-md"
+                  class="rounded-2xl border border-slate-200 bg-gradient-to-br from-blue-50 to-white p-4 shadow-sm transition-all duration-200 hover:shadow-md"
                 >
-                  <div class="flex items-center justify-between mb-3">
-                    <p class="text-sm font-medium text-slate-600">
+                  <div class="flex items-center justify-between mb-2">
+                    <p class="text-xs font-medium text-slate-600">
                       Total Booking
                     </p>
                     <div
-                      class="h-10 w-10 flex items-center justify-center rounded-2xl bg-blue-100 text-2xl"
+                      class="h-9 w-9 flex items-center justify-center rounded-2xl bg-blue-100 text-xl"
                     >
                       📅
                     </div>
                   </div>
                   <p
                     id="statBooking"
-                    class="text-3xl sm:text-4xl font-bold text-slate-900"
+                    class="text-2xl sm:text-4xl font-bold text-slate-900"
                   >
                     0
                   </p>
                 </div>
                 <div
-                  class="rounded-2xl border border-slate-200 bg-gradient-to-br from-amber-50 to-white p-5 shadow-sm transition-all duration-200 hover:shadow-md"
+                  class="rounded-2xl border border-slate-200 bg-gradient-to-br from-amber-50 to-white p-4 shadow-sm transition-all duration-200 hover:shadow-md"
                 >
-                  <div class="flex items-center justify-between mb-3">
-                    <p class="text-sm font-medium text-slate-600">
+                  <div class="flex items-center justify-between mb-2">
+                    <p class="text-xs font-medium text-slate-600">
                       Booking Pending
                     </p>
                     <div
-                      class="h-10 w-10 flex items-center justify-center rounded-2xl bg-amber-100 text-2xl"
+                      class="h-9 w-9 flex items-center justify-center rounded-2xl bg-amber-100 text-xl"
                     >
                       ⏳
                     </div>
                   </div>
                   <p
                     id="statPending"
-                    class="text-3xl sm:text-4xl font-bold text-slate-900"
+                    class="text-2xl sm:text-4xl font-bold text-slate-900"
                   >
                     0
                   </p>
@@ -138,59 +138,59 @@
               </div>
             </div>
 
-            <section class="rounded-[2rem] bg-white p-5 sm:p-6 shadow-sm">
+            <section class="rounded-[2rem] bg-white p-4 sm:p-6 shadow-sm">
               <div class="flex items-center justify-between gap-3">
                 <div>
-                  <p class="text-sm uppercase tracking-[0.24em] text-slate-500">
+                  <p class="text-xs uppercase tracking-[0.24em] text-slate-500">
                     Listing Homestay
                   </p>
-                  <h2 class="text-xl sm:text-2xl font-semibold text-slate-900">
+                  <h2 class="text-lg sm:text-2xl font-semibold text-slate-900">
                     Kelola homestay
                   </h2>
                 </div>
               </div>
-              <div id="homestayTable" class="mt-5 space-y-4"></div>
+              <div id="homestayTable" class="mt-4 space-y-4"></div>
             </section>
 
-            <section class="rounded-[2rem] bg-white p-5 sm:p-6 shadow-sm">
+            <section class="rounded-[2rem] bg-white p-4 sm:p-6 shadow-sm">
               <div class="flex items-center justify-between gap-3">
                 <div>
-                  <p class="text-sm uppercase tracking-[0.24em] text-slate-500">
+                  <p class="text-xs uppercase tracking-[0.24em] text-slate-500">
                     Booking terbaru
                   </p>
-                  <h2 class="text-xl sm:text-2xl font-semibold text-slate-900">
+                  <h2 class="text-lg sm:text-2xl font-semibold text-slate-900">
                     Kelola booking user
                   </h2>
                 </div>
               </div>
-              <div id="bookingTable" class="mt-5 space-y-4"></div>
+              <div id="bookingTable" class="mt-4 space-y-4"></div>
             </section>
           </div>
 
           <div class="space-y-5">
-            <section class="rounded-[2rem] bg-white p-5 sm:p-6 shadow-sm">
-              <div class="flex items-center justify-between mb-5">
+            <section class="rounded-[2rem] bg-white p-4 sm:p-6 shadow-sm">
+              <div class="flex items-center justify-between mb-4">
                 <div>
                   <p
-                    class="text-sm uppercase tracking-[0.24em] text-slate-500 mb-1"
+                    class="text-xs uppercase tracking-[0.24em] text-slate-500 mb-1"
                   >
                     Ringkasan visual
                   </p>
-                  <h2 class="text-xl sm:text-2xl font-semibold text-slate-900">
+                  <h2 class="text-lg sm:text-2xl font-semibold text-slate-900">
                     Sekilas statistik
                   </h2>
                 </div>
               </div>
-              <div class="space-y-5">
+              <div class="space-y-4">
                 <div>
-                  <div class="mb-3 flex items-center justify-between text-sm">
+                  <div class="mb-2 flex items-center justify-between text-sm">
                     <span class="font-medium text-slate-700">Homestay</span>
                     <span
                       id="chartHomestay"
                       class="font-semibold text-slate-900"
                     ></span>
                   </div>
-                  <div class="h-4 overflow-hidden rounded-full bg-slate-100">
+                  <div class="h-3 overflow-hidden rounded-full bg-slate-100">
                     <div
                       id="barHomestay"
                       class="h-full rounded-full bg-gradient-to-r from-emerald-400 to-emerald-600 transition-all duration-1000 ease-out"
@@ -199,14 +199,14 @@
                   </div>
                 </div>
                 <div>
-                  <div class="mb-3 flex items-center justify-between text-sm">
+                  <div class="mb-2 flex items-center justify-between text-sm">
                     <span class="font-medium text-slate-700">Booking</span>
                     <span
                       id="chartBooking"
                       class="font-semibold text-slate-900"
                     ></span>
                   </div>
-                  <div class="h-4 overflow-hidden rounded-full bg-slate-100">
+                  <div class="h-3 overflow-hidden rounded-full bg-slate-100">
                     <div
                       id="barBooking"
                       class="h-full rounded-full bg-gradient-to-r from-blue-400 to-blue-600 transition-all duration-1000 ease-out"
@@ -215,14 +215,14 @@
                   </div>
                 </div>
                 <div>
-                  <div class="mb-3 flex items-center justify-between text-sm">
+                  <div class="mb-2 flex items-center justify-between text-sm">
                     <span class="font-medium text-slate-700">Pending</span>
                     <span
                       id="chartPending"
                       class="font-semibold text-slate-900"
                     ></span>
                   </div>
-                  <div class="h-4 overflow-hidden rounded-full bg-slate-100">
+                  <div class="h-3 overflow-hidden rounded-full bg-slate-100">
                     <div
                       id="barPending"
                       class="h-full rounded-full bg-gradient-to-r from-amber-400 to-amber-600 transition-all duration-1000 ease-out"
@@ -233,16 +233,18 @@
               </div>
             </section>
 
-            <section class="rounded-[2rem] bg-white p-5 sm:p-6 shadow-sm">
+            <section class="rounded-[2rem] bg-white p-4 sm:p-6 shadow-sm">
               <div>
-                <p class="text-sm uppercase tracking-[0.24em] text-slate-500">
+                <p class="text-xs uppercase tracking-[0.24em] text-slate-500">
                   Catatan
                 </p>
-                <h2 class="text-xl sm:text-2xl font-semibold text-slate-900">
+                <h2 class="text-lg sm:text-2xl font-semibold text-slate-900">
                   Instruksi singkat
                 </h2>
               </div>
-              <div class="mt-4 space-y-3 text-sm leading-7 text-slate-600">
+              <div
+                class="mt-3 space-y-2 text-sm leading-relaxed text-slate-600"
+              >
                 <p>
                   Gunakan tombol "Tambah Homestay" untuk membuat listing baru.
                   Klik edit untuk memperbarui informasi dan upload gambar baru.
@@ -262,81 +264,81 @@
         class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm modal-overlay"
       >
         <div
-          class="relative w-full max-w-3xl max-h-[90vh] overflow-hidden rounded-[2rem] bg-white shadow-2xl flex flex-col modal-content-mobile"
+          class="relative w-full max-w-3xl max-h-[90vh] overflow-hidden rounded-[1.5rem] bg-white shadow-2xl flex flex-col modal-content-mobile"
         >
           <button
             id="closeHomestayModal"
-            class="absolute right-4 top-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-slate-100 text-slate-900 shadow-sm transition hover:bg-slate-200 z-10"
+            class="absolute right-3 top-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-900 shadow-sm transition hover:bg-slate-200 z-10"
           >
             ×
           </button>
-          <div class="p-6 sm:p-8 overflow-y-auto flex-1 modal-padding-mobile">
+          <div class="p-4 sm:p-6 overflow-y-auto flex-1 modal-padding-mobile">
             <h2
               id="homestayModalTitle"
-              class="text-2xl font-semibold text-slate-900 mb-2"
+              class="text-xl font-semibold text-slate-900 mb-2"
             >
               Tambah Homestay
             </h2>
-            <p class="text-sm text-slate-500 mb-6">
+            <p class="text-xs text-slate-500 mb-5">
               Isi detail homestay Anda di bawah ini
             </p>
 
-            <div class="space-y-5">
+            <div class="space-y-4">
               <!-- Basic Info Section -->
-              <div class="grid gap-4 sm:grid-cols-2">
-                <div class="sm:col-span-2">
-                  <label class="block text-sm font-medium text-slate-700 mb-2"
+              <div class="grid gap-3">
+                <div>
+                  <label class="block text-xs font-medium text-slate-700 mb-1.5"
                     >Nama Homestay</label
                   >
                   <input
                     id="homestayName"
                     type="text"
                     placeholder="Masukkan nama homestay"
-                    class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-sm text-slate-900 outline-none transition-all duration-200 focus:border-slate-400 focus:ring-4 focus:ring-slate-100"
+                    class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 outline-none transition-all duration-200 focus:border-slate-400 focus:ring-3 focus:ring-slate-100"
                   />
                 </div>
 
-                <div class="sm:col-span-2">
-                  <label class="block text-sm font-medium text-slate-700 mb-2"
+                <div>
+                  <label class="block text-xs font-medium text-slate-700 mb-1.5"
                     >Deskripsi</label
                   >
                   <textarea
                     id="homestayDescription"
-                    rows="4"
+                    rows="3"
                     placeholder="Ceritakan sedikit tentang homestay Anda..."
-                    class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-sm text-slate-900 outline-none transition-all duration-200 focus:border-slate-400 focus:ring-4 focus:ring-slate-100 resize-none"
+                    class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 outline-none transition-all duration-200 focus:border-slate-400 focus:ring-3 focus:ring-slate-100 resize-none"
                   ></textarea>
                 </div>
               </div>
 
               <!-- Details Section -->
-              <div class="grid gap-4 sm:grid-cols-2">
+              <div class="grid gap-3 sm:grid-cols-2">
                 <div>
-                  <label class="block text-sm font-medium text-slate-700 mb-2"
+                  <label class="block text-xs font-medium text-slate-700 mb-1.5"
                     >Lokasi</label
                   >
                   <input
                     id="homestayLocation"
                     type="text"
                     placeholder="Contoh: Bali, Indonesia"
-                    class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-sm text-slate-900 outline-none transition-all duration-200 focus:border-slate-400 focus:ring-4 focus:ring-slate-100"
+                    class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 outline-none transition-all duration-200 focus:border-slate-400 focus:ring-3 focus:ring-slate-100"
                   />
                 </div>
 
                 <div>
-                  <label class="block text-sm font-medium text-slate-700 mb-2"
+                  <label class="block text-xs font-medium text-slate-700 mb-1.5"
                     >Harga per Malam</label
                   >
                   <input
                     id="homestayPrice"
                     type="text"
                     placeholder="Rp 0"
-                    class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-sm text-slate-900 outline-none transition-all duration-200 focus:border-slate-400 focus:ring-4 focus:ring-slate-100"
+                    class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 outline-none transition-all duration-200 focus:border-slate-400 focus:ring-3 focus:ring-slate-100"
                   />
                 </div>
 
                 <div>
-                  <label class="block text-sm font-medium text-slate-700 mb-2"
+                  <label class="block text-xs font-medium text-slate-700 mb-1.5"
                     >Kapasitas Tamu</label
                   >
                   <input
@@ -344,17 +346,17 @@
                     type="number"
                     min="1"
                     placeholder="2"
-                    class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-sm text-slate-900 outline-none transition-all duration-200 focus:border-slate-400 focus:ring-4 focus:ring-slate-100"
+                    class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 outline-none transition-all duration-200 focus:border-slate-400 focus:ring-3 focus:ring-slate-100"
                   />
                 </div>
 
                 <div>
-                  <label class="block text-sm font-medium text-slate-700 mb-2"
+                  <label class="block text-xs font-medium text-slate-700 mb-1.5"
                     >Status</label
                   >
                   <select
                     id="homestayStatus"
-                    class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-sm text-slate-900 outline-none transition-all duration-200 focus:border-slate-400 focus:ring-4 focus:ring-slate-100 cursor-pointer"
+                    class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 outline-none transition-all duration-200 focus:border-slate-400 focus:ring-3 focus:ring-slate-100 cursor-pointer"
                   >
                     <option value="Ready">Ready</option>
                     <option value="Booked">Booked</option>
@@ -365,53 +367,53 @@
 
               <!-- Facilities -->
               <div>
-                <label class="block text-sm font-medium text-slate-700 mb-2"
+                <label class="block text-xs font-medium text-slate-700 mb-1.5"
                   >Fasilitas</label
                 >
                 <input
                   id="homestayFacilities"
                   type="text"
                   placeholder="AC, WiFi, TV (pisahkan dengan koma)"
-                  class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-sm text-slate-900 outline-none transition-all duration-200 focus:border-slate-400 focus:ring-4 focus:ring-slate-100"
+                  class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 outline-none transition-all duration-200 focus:border-slate-400 focus:ring-3 focus:ring-slate-100"
                 />
               </div>
 
               <!-- Hero Toggle -->
-              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                <div class="flex items-center gap-3">
+              <div class="rounded-xl border border-slate-200 bg-slate-50 p-3.5">
+                <div class="flex items-center gap-2.5">
                   <input
                     id="homestayShowInHero"
                     type="checkbox"
-                    class="h-5 w-5 rounded border-slate-300 text-slate-900 focus:ring-slate-500 cursor-pointer"
+                    class="h-4.5 w-4.5 rounded border-slate-300 text-slate-900 focus:ring-slate-500 cursor-pointer"
                   />
                   <label
                     for="homestayShowInHero"
-                    class="text-sm font-medium text-slate-700 cursor-pointer"
+                    class="text-xs font-medium text-slate-700 cursor-pointer"
                     >Tampilkan di bagian hero utama</label
                   >
                 </div>
-                <p class="text-xs text-slate-500 mt-2 ml-8">
+                <p class="text-[0.65rem] text-slate-500 mt-1.5 ml-7">
                   Homestay ini akan muncul di carousel di halaman depan
                 </p>
               </div>
 
               <!-- Image Section -->
-              <div class="space-y-3">
-                <label class="block text-sm font-medium text-slate-700"
+              <div class="space-y-2.5">
+                <label class="block text-xs font-medium text-slate-700"
                   >Gambar Utama</label
                 >
                 <input
                   id="homestayImage"
                   type="text"
                   placeholder="https://drive.google.com/file/d/... atau URL gambar"
-                  class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-sm text-slate-900 outline-none transition-all duration-200 focus:border-slate-400 focus:ring-4 focus:ring-slate-100"
+                  class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 outline-none transition-all duration-200 focus:border-slate-400 focus:ring-3 focus:ring-slate-100"
                 />
-                <p class="text-xs text-slate-500">
+                <p class="text-[0.65rem] text-slate-500">
                   Contoh: https://drive.google.com/file/d/FILE_ID/view
                 </p>
                 <p
                   id="homestayImageWarning"
-                  class="hidden text-sm font-medium text-rose-600 bg-rose-50 px-4 py-3 rounded-2xl"
+                  class="hidden text-xs font-medium text-rose-600 bg-rose-50 px-3.5 py-2.5 rounded-xl"
                 >
                   Link gambar tidak valid atau tidak dapat diakses. Pastikan
                   file Google Drive dapat dilihat oleh siapa saja yang memiliki
@@ -419,22 +421,22 @@
                 </p>
                 <div
                   id="homestayImagePreview"
-                  class="hidden overflow-hidden rounded-2xl border border-slate-200 bg-slate-50"
+                  class="hidden overflow-hidden rounded-xl border border-slate-200 bg-slate-50"
                 >
                   <img
                     id="homestayImagePreviewImg"
                     src=""
                     alt="Preview gambar homestay"
-                    class="w-full h-64 object-cover"
+                    class="w-full h-48 object-cover"
                   />
                 </div>
               </div>
 
               <!-- Action Buttons -->
-              <div class="flex items-center justify-end gap-3 pt-4">
+              <div class="flex items-center justify-end gap-2.5 pt-3">
                 <button
                   id="saveHomestayButton"
-                  class="rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-slate-800 hover:shadow-lg hover:-translate-y-0.5"
+                  class="w-full sm:w-auto rounded-xl bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-slate-800 hover:shadow-md"
                 >
                   Simpan Homestay
                 </button>

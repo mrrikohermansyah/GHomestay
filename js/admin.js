@@ -261,10 +261,10 @@ function renderHomestayRows() {
   homestayTable.innerHTML = "";
   if (!homestays.length) {
     homestayTable.innerHTML =
-      '<div class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-12 text-center">' +
-      '<div class="text-5xl mb-4">🏠</div>' +
-      '<p class="text-lg font-medium text-slate-700 mb-2">Belum ada homestay</p>' +
-      '<p class="text-sm text-slate-500">Tambahkan homestay baru untuk memulai</p>' +
+      '<div class="rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-8 text-center">' +
+      '<div class="text-4xl mb-3">🏠</div>' +
+      '<p class="text-base font-medium text-slate-700 mb-2">Belum ada homestay</p>' +
+      '<p class="text-xs text-slate-500">Tambahkan homestay baru untuk memulai</p>' +
       "</div>";
     return;
   }
@@ -275,38 +275,40 @@ function renderHomestayRows() {
     row.className =
       "overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-200 hover:shadow-md";
     row.innerHTML = `
-      <div class="flex flex-col sm:flex-row">
-        <div class="sm:w-48 h-48 sm:h-auto flex-shrink-0">
+      <div class="flex flex-col">
+        <div class="w-full h-48 flex-shrink-0">
           <img src="${primaryImage || "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80"}" alt="${item.name}" class="w-full h-full object-cover">
         </div>
-        <div class="flex-1 p-6">
-          <div class="flex items-start justify-between gap-4">
+        <div class="flex-1 p-4">
+          <div class="flex flex-col gap-3">
             <div class="flex-1">
-              <div class="flex items-center gap-2 mb-2">
-                <p class="text-xl font-semibold text-slate-900">${item.name}</p>
-                ${item.showInHero ? '<span class="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700"><span>⭐</span> Hero</span>' : ""}
-                <span class="inline-flex items-center gap-1 rounded-full ${item.status === "Ready" ? "bg-emerald-100 text-emerald-700" : item.status === "Booked" ? "bg-amber-100 text-amber-700" : "bg-slate-100 text-slate-700"} px-3 py-1 text-xs font-semibold">${item.status}</span>
+              <div class="flex items-start justify-between gap-2 mb-2">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <p class="text-lg font-semibold text-slate-900">${item.name}</p>
+                  ${item.showInHero ? '<span class="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-semibold text-emerald-700"><span>⭐</span> Hero</span>' : ""}
+                  <span class="inline-flex items-center gap-1 rounded-full ${item.status === "Ready" ? "bg-emerald-100 text-emerald-700" : item.status === "Booked" ? "bg-amber-100 text-amber-700" : "bg-slate-100 text-slate-700"} px-2.5 py-1 text-xs font-semibold">${item.status}</span>
+                </div>
               </div>
-              <p class="text-sm text-slate-500 mb-2">📍 ${item.location}</p>
+              <p class="text-xs text-slate-500 mb-2">📍 ${item.location}</p>
               <p class="text-sm text-slate-600 mb-3 line-clamp-2">${item.description}</p>
-              <div class="flex flex-wrap gap-2 mb-3">
+              <div class="flex flex-wrap gap-1.5 mb-3">
                 ${
                   item.facilities
                     ?.slice(0, 4)
                     .map(
                       (f) =>
-                        `<span class="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-600">${f}</span>`,
+                        `<span class="rounded-full bg-slate-100 px-2.5 py-1 text-xs text-slate-600">${f}</span>`,
                     )
                     .join("") || ""
                 }
               </div>
-              <p class="text-lg font-bold text-slate-900">${formatCurrency(item.price)} <span class="text-sm font-normal text-slate-500">/ malam</span></p>
+              <p class="text-lg font-bold text-slate-900">${formatCurrency(item.price)} <span class="text-xs font-normal text-slate-500">/ malam</span></p>
             </div>
-            <div class="flex flex-col gap-2">
-              <button data-id="${item.id}" class="editHomestay inline-flex items-center gap-2 rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-slate-800 hover:shadow-md">
+            <div class="flex gap-2">
+              <button data-id="${item.id}" class="editHomestay flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-slate-800 hover:shadow-md">
                 <span>✏️</span> Edit
               </button>
-              <button data-id="${item.id}" class="deleteHomestay inline-flex items-center gap-2 rounded-xl bg-white border border-slate-200 px-4 py-2.5 text-sm font-semibold text-rose-600 transition-all duration-200 hover:bg-rose-50 hover:border-rose-200">
+              <button data-id="${item.id}" class="deleteHomestay flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-white border border-slate-200 px-4 py-2.5 text-sm font-semibold text-rose-600 transition-all duration-200 hover:bg-rose-50 hover:border-rose-200">
                 <span>🗑️</span> Hapus
               </button>
             </div>
@@ -330,10 +332,10 @@ function renderBookingRows() {
   bookingTable.innerHTML = "";
   if (!bookings.length) {
     bookingTable.innerHTML =
-      '<div class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-12 text-center">' +
-      '<div class="text-5xl mb-4">📅</div>' +
-      '<p class="text-lg font-medium text-slate-700 mb-2">Belum ada booking</p>' +
-      '<p class="text-sm text-slate-500">Booking akan muncul di sini ketika ada yang memesan</p>' +
+      '<div class="rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-8 text-center">' +
+      '<div class="text-4xl mb-3">📅</div>' +
+      '<p class="text-base font-medium text-slate-700 mb-2">Belum ada booking</p>' +
+      '<p class="text-xs text-slate-500">Booking akan muncul di sini ketika ada yang memesan</p>' +
       "</div>";
     return;
   }
@@ -344,36 +346,36 @@ function renderBookingRows() {
     ) || { name: "Homestay tidak tersedia", location: "-" };
     const row = document.createElement("div");
     row.className =
-      "overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-200 hover:shadow-md p-6";
+      "overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-200 hover:shadow-md p-4";
     row.innerHTML = `
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div class="flex flex-col gap-3">
         <div class="flex-1">
-          <p class="text-lg font-semibold text-slate-900 mb-1">${homestay.name}</p>
-          <p class="text-sm text-slate-500 mb-2">📍 ${homestay.location}</p>
-          <div class="flex items-center gap-4 text-sm">
+          <p class="text-base font-semibold text-slate-900 mb-1">${homestay.name}</p>
+          <p class="text-xs text-slate-500 mb-2">📍 ${homestay.location}</p>
+          <div class="flex items-center gap-2 text-xs">
             <span class="inline-flex items-center gap-1 text-slate-600">
               <span>📅</span> ${item.checkIn} - ${item.checkOut}
             </span>
           </div>
         </div>
-        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-          <span class="inline-flex items-center justify-center gap-1 rounded-xl px-4 py-2 text-sm font-semibold ${item.status === "approved" ? "bg-emerald-100 text-emerald-700" : item.status === "rejected" ? "bg-rose-100 text-rose-700" : "bg-amber-100 text-amber-700"}">
+        <div class="flex flex-col gap-2">
+          <span class="inline-flex items-center justify-center gap-1 rounded-xl px-3 py-1.5 text-xs font-semibold ${item.status === "approved" ? "bg-emerald-100 text-emerald-700" : item.status === "rejected" ? "bg-rose-100 text-rose-700" : "bg-amber-100 text-amber-700"}">
             ${item.status === "approved" ? "✅" : item.status === "rejected" ? "❌" : "⏳"} ${item.status}
           </span>
-          <div class="flex gap-2">
+          <div class="flex flex-wrap gap-2">
             ${
               item.status === "pending"
                 ? `
-              <button data-id="${item.id}" data-action="approve" class="inline-flex items-center gap-1 rounded-xl bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition-all duration-200 hover:bg-emerald-700 hover:shadow-md">
+              <button data-id="${item.id}" data-action="approve" class="flex-1 inline-flex items-center justify-center gap-1 rounded-xl bg-emerald-600 px-3 py-2 text-xs font-semibold text-white transition-all duration-200 hover:bg-emerald-700 hover:shadow-md">
                 ✅ Approve
               </button>
-              <button data-id="${item.id}" data-action="reject" class="inline-flex items-center gap-1 rounded-xl bg-rose-600 px-4 py-2 text-sm font-semibold text-white transition-all duration-200 hover:bg-rose-700 hover:shadow-md">
+              <button data-id="${item.id}" data-action="reject" class="flex-1 inline-flex items-center justify-center gap-1 rounded-xl bg-rose-600 px-3 py-2 text-xs font-semibold text-white transition-all duration-200 hover:bg-rose-700 hover:shadow-md">
                 ❌ Reject
               </button>
             `
                 : ""
             }
-            <button data-id="${item.id}" class="deleteBooking inline-flex items-center gap-1 rounded-xl bg-white border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-600 transition-all duration-200 hover:bg-slate-50 hover:border-slate-300">
+            <button data-id="${item.id}" class="flex-1 inline-flex items-center justify-center gap-1 rounded-xl bg-white border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-600 transition-all duration-200 hover:bg-slate-50 hover:border-slate-300">
               🗑️ Hapus
             </button>
           </div>
