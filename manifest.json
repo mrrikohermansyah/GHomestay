@@ -1,0 +1,24 @@
+{
+  "name": "Homestay Booking",
+  "short_name": "Homestay",
+  "description": "Sistem booking homestay elegan untuk desktop, Android, dan iOS.",
+  "icons": [
+    {
+      "src": "assets/icons/app-icon.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "assets/icons/app-icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "theme_color": "#0f172a",
+  "background_color": "#f8fafc",
+  "categories": ["travel", "booking", "hospitality"],
+  "orientation": "portrait-primary"
+}

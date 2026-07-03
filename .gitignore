@@ -1,0 +1,6 @@
+# Ignore Firebase environment file
+js/firebaseConfig.js
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Homestay Booking System</title>
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Homestay Booking" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="assets/icons/app-icon.svg" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+  </head>
+  <body class="bg-slate-50 text-slate-900">
+    <div class="min-h-screen">
+      <header
+        class="sticky top-0 z-40 border-b border-slate-200/80 bg-white/95 backdrop-blur-lg"
+      >
+        <div
+          class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
+        >
+          <div>
+            <a href="index.html" class="flex items-center gap-3 text-slate-900">
+              <div
+                class="inline-flex h-11 w-11 items-center justify-center rounded-3xl bg-slate-900 text-white"
+              >
+                H
+              </div>
+              <div>
+                <p class="text-sm font-semibold leading-none">
+                  Homestay Booking
+                </p>
+                <p class="text-xs text-slate-500">Elegant booking experience</p>
+              </div>
+            </a>
+          </div>
+          <div class="flex items-center gap-3">
+            <a
+              href="#list"
+              class="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 transition hover:bg-slate-50"
+              >Explore</a
+            >
+            <button
+              id="installButton"
+              class="hidden rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 transition hover:bg-slate-50"
+            >
+              Install App
+            </button>
+            <a
+              id="adminLink"
+              href="admin.html"
+              class="hidden rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800"
+              >Admin Dashboard</a
+            >
+            <button
+              id="authToggleButton"
+              class="rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800"
+            >
+              Login / Register
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <section
+          id="heroSection"
+          class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center"
+        >
+          <div class="space-y-6">
+            <p
+              class="inline-flex rounded-full bg-slate-100 px-4 py-1 text-sm text-slate-700"
+            >
+              Modern stay experience
+            </p>
+            <h1
+              class="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl"
+            >
+              Sistem booking homestay elegan untuk liburan dan kerja remote.
+            </h1>
+            <p class="max-w-2xl text-lg leading-8 text-slate-600">
+              Temukan homestay minimalis dengan fasilitas lengkap, book
+              langsung, dan ikuti status booking secara real-time.
+            </p>
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+              <a
+                href="#list"
+                class="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+                >Lihat Homestay</a
+              >
+              <button
+                id="showMyBookings"
+                class="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-300"
+              >
+                Booking Saya
+              </button>
+            </div>
+          </div>
+          <div
+            id="heroContainer"
+            class="rounded-[2rem] bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 p-1 shadow-2xl shadow-slate-900/10 relative"
+          >
+            <!-- Placeholder when no hero homestays are selected -->
+            <div
+              id="heroPlaceholder"
+              class="hidden relative overflow-hidden rounded-[2rem] bg-white p-6 sm:p-8"
+            >
+              <div
+                class="h-72 w-full rounded-3xl bg-slate-100 flex items-center justify-center"
+              >
+                <div class="text-center">
+                  <div class="text-6xl mb-4">🏠</div>
+                  <p class="text-slate-600">
+                    Pilih homestay untuk ditampilkan di hero
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Hero carousel when there are selected homestays -->
+            <div id="heroCarousel" class="relative">
+              <button
+                id="heroPrev"
+                class="absolute left-0 top-1/2 z-10 -translate-y-1/2 -translate-x-3 h-10 w-10 flex items-center justify-center rounded-full bg-white text-slate-900 shadow-lg transition hover:bg-slate-50 disabled:opacity-30 disabled:cursor-not-allowed"
+              >
+                ←
+              </button>
+              <button
+                id="heroNext"
+                class="absolute right-0 top-1/2 z-10 -translate-y-1/2 translate-x-3 h-10 w-10 flex items-center justify-center rounded-full bg-white text-slate-900 shadow-lg transition hover:bg-slate-50 disabled:opacity-30 disabled:cursor-not-allowed"
+              >
+                →
+              </button>
+              <div
+                id="heroCard"
+                class="relative overflow-hidden rounded-[2rem] bg-white p-6 sm:p-8 cursor-pointer"
+              >
+                <img
+                  id="heroImage"
+                  src="https://lh3.googleusercontent.com/d/1lERc5i9spwrqGrmhOg03BsW6w4lZDdD7=s600?authuser=0"
+                  alt="Homestay"
+                  class="h-72 w-full rounded-3xl object-cover shadow-xl shadow-slate-900/10"
+                />
+                <div class="mt-6 space-y-4">
+                  <div class="flex items-center justify-between gap-4">
+                    <div>
+                      <p
+                        id="heroLocation"
+                        class="text-sm uppercase tracking-[0.24em] text-slate-500"
+                      >
+                        Stay modern
+                      </p>
+                      <h2
+                        id="heroName"
+                        class="text-2xl font-semibold text-slate-900"
+                      >
+                        Homestay Tropis Bali
+                      </h2>
+                    </div>
+                    <span
+                      id="heroStatus"
+                      class="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.26em] text-emerald-700"
+                      >Ready</span
+                    >
+                  </div>
+                  <p id="heroDescription" class="text-slate-600">
+                    Didesain untuk kenyamanan maksimal, cocok untuk liburan
+                    keluarga atau perjalanan kerja.
+                  </p>
+                  <div class="grid gap-3 sm:grid-cols-3">
+                    <div class="rounded-3xl bg-slate-50 p-4 text-sm">
+                      <p id="heroCapacity" class="font-semibold text-slate-900">
+                        2 tamu
+                      </p>
+                      <p class="text-slate-500">Kapasitas</p>
+                    </div>
+                    <div class="rounded-3xl bg-slate-50 p-4 text-sm">
+                      <p id="heroFacility" class="font-semibold text-slate-900">
+                        A/C
+                      </p>
+                      <p class="text-slate-500">Fasilitas</p>
+                    </div>
+                    <div class="rounded-3xl bg-slate-50 p-4 text-sm">
+                      <p id="heroPrice" class="font-semibold text-slate-900">
+                        IDR 300K
+                      </p>
+                      <p class="text-slate-500">Mulai dari</p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  id="heroIndicators"
+                  class="mt-6 flex justify-center gap-2"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="list" class="mt-16 space-y-6">
+          <div
+            class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+          >
+            <div>
+              <p class="text-sm uppercase tracking-[0.24em] text-slate-500">
+                Temukan homestay
+              </p>
+              <h2 class="text-3xl font-semibold tracking-tight text-slate-900">
+                Daftar homestay terbaik
+              </h2>
+            </div>
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+              <input
+                id="searchInput"
+                type="text"
+                placeholder="Cari nama atau lokasi"
+                class="w-full rounded-3xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-400 sm:w-72"
+              />
+              <select
+                id="sortSelect"
+                class="w-full rounded-3xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-400 sm:w-52"
+              >
+                <option value="newest">Terbaru</option>
+                <option value="priceAsc">Harga terendah</option>
+                <option value="priceDesc">Harga tertinggi</option>
+              </select>
+            </div>
+          </div>
+
+          <div
+            id="homestayGrid"
+            class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3"
+          ></div>
+          <div
+            id="emptyState"
+            class="hidden rounded-3xl border border-dashed border-slate-300 bg-white p-10 text-center text-slate-500"
+          >
+            <p class="text-lg font-semibold">Tidak ada homestay ditemukan.</p>
+            <p class="mt-2">
+              Silakan coba kata kunci lain atau tambahkan homestay melalui
+              dashboard admin.
+            </p>
+          </div>
+        </section>
+
+        <section
+          id="bookingSection"
+          class="mt-16 hidden rounded-[2rem] bg-white p-8 shadow-xl shadow-slate-200/80"
+        >
+          <div
+            class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between"
+          >
+            <div>
+              <p class="text-sm uppercase tracking-[0.24em] text-slate-500">
+                Booking saya
+              </p>
+              <h2 class="text-2xl font-semibold text-slate-900">
+                Riwayat dan status booking
+              </h2>
+            </div>
+            <button
+              id="closeBookingSection"
+              class="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm text-slate-900 transition hover:bg-slate-100"
+            >
+              Tutup
+            </button>
+          </div>
+          <div id="bookingList" class="grid gap-4"></div>
+          <div
+            id="bookingEmptyState"
+            class="hidden rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-center text-slate-500"
+          >
+            <p class="text-lg font-semibold">Belum ada booking.</p>
+            <p class="mt-2">
+              Ayo pilih homestay dan lakukan booking pertama Anda.
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <div
+        id="detailModal"
+        class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/40 p-4 backdrop-blur-sm"
+      >
+        <div
+          class="relative w-full max-w-5xl max-h-[90vh] overflow-hidden rounded-[2rem] bg-white shadow-2xl flex flex-col"
+        >
+          <button
+            id="closeModal"
+            class="absolute right-4 top-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white text-slate-900 shadow-sm transition hover:bg-slate-50 z-10"
+          >
+            ×
+          </button>
+          <div
+            class="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] p-6 sm:p-8 overflow-y-auto flex-1"
+          >
+            <div>
+              <img
+                id="detailImage"
+                src=""
+                alt="Homestay image"
+                class="mb-6 h-72 w-full rounded-3xl object-cover shadow-sm"
+              />
+              <div>
+                <p
+                  id="detailLocation"
+                  class="text-sm uppercase tracking-[0.24em] text-slate-500"
+                ></p>
+                <h2
+                  id="detailName"
+                  class="mt-3 text-3xl font-semibold text-slate-900"
+                ></h2>
+                <p
+                  id="detailPrice"
+                  class="mt-4 text-xl font-semibold text-emerald-700"
+                ></p>
+                <p id="detailDescription" class="mt-4 text-slate-600"></p>
+                <div
+                  id="detailFacilities"
+                  class="mt-6 grid gap-3 sm:grid-cols-2"
+                ></div>
+              </div>
+            </div>
+            <div class="rounded-[1.5rem] bg-slate-50 p-6 shadow-sm">
+              <div class="mb-6 rounded-3xl bg-white p-6 shadow-sm">
+                <h3 class="text-lg font-semibold text-slate-900">Booking</h3>
+                <div class="mt-4 space-y-4">
+                  <div>
+                    <label class="mb-2 block text-sm font-medium text-slate-600"
+                      >Check-in</label
+                    >
+                    <input
+                      id="checkinDate"
+                      type="date"
+                      class="w-full rounded-3xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-400"
+                    />
+                  </div>
+                  <div>
+                    <label class="mb-2 block text-sm font-medium text-slate-600"
+                      >Check-out</label
+                    >
+                    <input
+                      id="checkoutDate"
+                      type="date"
+                      disabled
+                      class="w-full rounded-3xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-400"
+                    />
+                  </div>
+                  <button
+                    id="bookButton"
+                    class="w-full rounded-3xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+                  >
+                    Book sekarang
+                  </button>
+                </div>
+              </div>
+              <div class="rounded-3xl bg-white p-6 shadow-sm">
+                <h3 class="text-lg font-semibold text-slate-900">Informasi</h3>
+                <p class="mt-3 text-sm leading-7 text-slate-600">
+                  Untuk memesan, login terlebih dahulu dan pilih tanggal
+                  check-in serta check-out. Status booking akan muncul di bagian
+                  booking saya.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="authPanel"
+        class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm"
+      >
+        <div
+          class="relative w-full max-w-3xl max-h-[90vh] overflow-hidden rounded-[2rem] bg-white shadow-2xl flex flex-col"
+        >
+          <button
+            id="closeAuthPanel"
+            class="absolute right-4 top-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-slate-100 text-slate-900 shadow-sm transition hover:bg-slate-200 z-10"
+          >
+            ×
+          </button>
+          <div
+            class="grid gap-6 lg:grid-cols-2 p-6 sm:p-8 overflow-y-auto flex-1"
+          >
+            <div class="space-y-4 border-r border-slate-200 pr-4 lg:pr-8">
+              <p class="text-sm uppercase tracking-[0.24em] text-slate-500">
+                Akses cepat
+              </p>
+              <h2 class="text-3xl font-semibold text-slate-900">
+                Masuk atau daftar untuk booking homestay.
+              </h2>
+              <p class="text-slate-600">
+                Gunakan email untuk mengelola booking Anda, melihat status, dan
+                mengakses halaman admin jika Anda adalah administrator.
+              </p>
+              <div
+                class="space-y-3 rounded-3xl bg-slate-50 p-4 text-sm text-slate-600"
+              >
+                <p>
+                  <strong>Tip:</strong> daftar dengan email yang valid untuk
+                  digunakan sebagai akun pengguna.
+                </p>
+                <p>Admin role ditentukan melalui Firestore field `role`.</p>
+              </div>
+            </div>
+            <div class="space-y-6">
+              <div class="rounded-[1.5rem] bg-slate-50 p-6">
+                <h3 class="text-lg font-semibold text-slate-900">Login</h3>
+                <div class="mt-4 space-y-4">
+                  <input
+                    id="loginEmail"
+                    type="email"
+                    placeholder="Email"
+                    class="w-full rounded-3xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-400"
+                  />
+                  <input
+                    id="loginPassword"
+                    type="password"
+                    placeholder="Password"
+                    class="w-full rounded-3xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-400"
+                  />
+                  <button
+                    id="loginButton"
+                    class="w-full rounded-3xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+                  >
+                    Login
+                  </button>
+                  <button
+                    id="googleLoginButton"
+                    class="w-full rounded-3xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
+                  >
+                    Login dengan Google
+                  </button>
+                </div>
+              </div>
+              <div class="rounded-[1.5rem] bg-slate-50 p-6">
+                <h3 class="text-lg font-semibold text-slate-900">Register</h3>
+                <div class="mt-4 space-y-4">
+                  <input
+                    id="registerName"
+                    type="text"
+                    placeholder="Nama lengkap"
+                    class="w-full rounded-3xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-400"
+                  />
+                  <input
+                    id="registerEmail"
+                    type="email"
+                    placeholder="Email"
+                    class="w-full rounded-3xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-400"
+                  />
+                  <input
+                    id="registerPassword"
+                    type="password"
+                    placeholder="Password"
+                    class="w-full rounded-3xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-400"
+                  />
+                  <button
+                    id="registerButton"
+                    class="w-full rounded-3xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700"
+                  >
+                    Register
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
