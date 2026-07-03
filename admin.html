@@ -444,5 +444,12 @@
     </div>
 
     <script type="module" src="js/admin.js"></script>
+    <script>
+      fetch("version.html")
+        .then((response) => response.text())
+        .then((html) => {
+          document.body.insertAdjacentHTML("beforeend", html);
+        });
+    </script>
   </body>
 </html>

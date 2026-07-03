@@ -397,6 +397,7 @@ async function handleGoogleLogin() {
     await ensureUserProfile(user);
     createToast("Login dengan Google berhasil");
     authPanel.classList.add("hidden");
+    authPanel.classList.remove("flex");
   } catch (error) {
     console.error("Google login error", error);
     if (
@@ -447,6 +448,7 @@ async function handleLogin() {
     await signInWithEmailAndPassword(auth, email, password);
     createToast("Berhasil login");
     authPanel.classList.add("hidden");
+    authPanel.classList.remove("flex");
     loginEmail.value = "";
     loginPassword.value = "";
   } catch (error) {
@@ -502,6 +504,7 @@ async function handleRegister() {
     registerEmail.value = "";
     registerPassword.value = "";
     authPanel.classList.add("hidden");
+    authPanel.classList.remove("flex");
   } catch (error) {
     console.error("Register error", error);
     createToast(
@@ -651,6 +654,7 @@ async function handleBooking() {
   if (!currentUser) {
     createToast("Silakan login terlebih dahulu untuk memesan.", "error");
     authPanel.classList.remove("hidden");
+    authPanel.classList.add("flex");
     return;
   }
 
@@ -887,7 +891,10 @@ function showLoggedInTools() {
 
 function showLoggedOutTools() {
   authToggleButton.textContent = "Login / Register";
-  authToggleButton.onclick = () => authPanel.classList.remove("hidden");
+  authToggleButton.onclick = () => {
+    authPanel.classList.remove("hidden");
+    authPanel.classList.add("flex");
+  };
   adminLink.classList.add("hidden");
 }
 
@@ -931,9 +938,10 @@ async function loadHomestays() {
 }
 
 // Event listeners (added after all functions are declared)
-closeAuthPanel.addEventListener("click", () =>
-  authPanel.classList.add("hidden"),
-);
+closeAuthPanel.addEventListener("click", () => {
+  authPanel.classList.add("hidden");
+  authPanel.classList.remove("flex");
+});
 showMyBookings.addEventListener("click", () =>
   bookingSection.classList.remove("hidden"),
 );
@@ -1012,6 +1020,7 @@ window.addEventListener("DOMContentLoaded", async () => {
       await ensureUserProfile(redirectResult.user);
       createToast("Login dengan Google berhasil");
       authPanel.classList.add("hidden");
+      authPanel.classList.remove("flex");
     }
   } catch (redirectError) {
     console.error("Redirect result error", redirectError);
