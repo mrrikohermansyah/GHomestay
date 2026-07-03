@@ -26,26 +26,22 @@
         class="sticky top-0 z-40 border-b border-slate-200/80 bg-white/95 backdrop-blur-lg"
       >
         <div
-          class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
+          class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
         >
-          <div>
-            <a href="index.html" class="flex items-center gap-3 text-slate-900">
-              <div
-                class="inline-flex h-11 w-11 items-center justify-center rounded-3xl bg-slate-900 text-white"
-              >
-                A
-              </div>
-              <div>
-                <p class="text-sm font-semibold leading-none">
-                  Admin Dashboard
-                </p>
-                <p class="text-xs text-slate-500">
-                  Manage homestays and bookings
-                </p>
-              </div>
-            </a>
-          </div>
-          <div class="flex items-center gap-3">
+          <a href="index.html" class="flex items-center gap-2 text-slate-900">
+            <div
+              class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-900 text-white sm:h-11 sm:w-11 sm:rounded-3xl"
+            >
+              A
+            </div>
+            <div class="hidden sm:block">
+              <p class="text-sm font-semibold leading-none">Admin Dashboard</p>
+              <p class="text-xs text-slate-500">
+                Manage homestays and bookings
+              </p>
+            </div>
+          </a>
+          <div class="flex items-center gap-2 sm:gap-3">
             <button
               id="logoutButton"
               class="rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800"
@@ -257,10 +253,10 @@
 
       <div
         id="homestayFormModal"
-        class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm"
+        class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm modal-overlay"
       >
         <div
-          class="relative w-full max-w-3xl max-h-[90vh] overflow-hidden rounded-[2rem] bg-white shadow-2xl flex flex-col"
+          class="relative w-full max-w-3xl max-h-[90vh] overflow-hidden rounded-[2rem] bg-white shadow-2xl flex flex-col modal-content-mobile"
         >
           <button
             id="closeHomestayModal"
@@ -268,7 +264,7 @@
           >
             ×
           </button>
-          <div class="p-6 sm:p-8 overflow-y-auto flex-1">
+          <div class="p-6 sm:p-8 overflow-y-auto flex-1 modal-padding-mobile">
             <h2
               id="homestayModalTitle"
               class="text-2xl font-semibold text-slate-900 mb-2"

@@ -33,46 +33,43 @@
         class="sticky top-0 z-40 border-b border-slate-200/80 bg-white/95 backdrop-blur-lg"
       >
         <div
-          class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
+          class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
         >
-          <div>
-            <a href="index.html" class="flex items-center gap-3 text-slate-900">
-              <div
-                class="inline-flex h-11 w-11 items-center justify-center rounded-3xl bg-slate-900 text-white"
-              >
-                H
-              </div>
-              <div>
-                <p class="text-sm font-semibold leading-none">
-                  Homestay Booking
-                </p>
-                <p class="text-xs text-slate-500">Elegant booking experience</p>
-              </div>
-            </a>
-          </div>
-          <div class="flex items-center gap-3">
+          <a href="index.html" class="flex items-center gap-2 text-slate-900">
+            <div
+              class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-900 text-white sm:h-11 sm:w-11 sm:rounded-3xl"
+            >
+              H
+            </div>
+            <div class="hidden sm:block">
+              <p class="text-sm font-semibold leading-none">Homestay Booking</p>
+              <p class="text-xs text-slate-500">Elegant booking experience</p>
+            </div>
+          </a>
+          <div class="flex items-center gap-2 sm:gap-3">
             <a
               href="#list"
-              class="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 transition hover:bg-slate-50"
+              class="hidden sm:inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 transition hover:bg-slate-50"
               >Explore</a
             >
             <button
               id="installButton"
-              class="hidden rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 transition hover:bg-slate-50"
+              class="hidden sm:inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 transition hover:bg-slate-50"
             >
               Install App
             </button>
             <a
               id="adminLink"
               href="admin.html"
-              class="hidden rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800"
+              class="hidden sm:inline-flex rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800"
               >Admin Dashboard</a
             >
             <button
               id="authToggleButton"
-              class="rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800"
+              class="inline-flex items-center justify-center rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
-              Login / Register
+              <span class="hidden sm:inline">Login / Register</span>
+              <span class="sm:hidden">Login</span>
             </button>
           </div>
         </div>
