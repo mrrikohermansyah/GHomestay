@@ -174,7 +174,6 @@ function updateImagePreview() {
   const rawUrl = homestayImageUrl.value.trim();
   const normalizedUrl = normalizeImageUrl(rawUrl);
   const isValidUrl = normalizedUrl && isValidAbsoluteUrl(normalizedUrl);
-  console.log("admin preview normalize", { rawUrl, normalizedUrl, isValidUrl });
   if (!normalizedUrl || !isValidUrl) {
     homestayImagePreview.classList.add("hidden");
     homestayImagePreviewImg.src = "";
@@ -222,11 +221,6 @@ function updateImagePreview() {
   };
 
   const tryLoad = (url, index = 0) => {
-    console.log("admin preview tryLoad", {
-      url,
-      index,
-      fallbackCount: fallbackUrls.length,
-    });
     if (!isValidAbsoluteUrl(url)) {
       stopPreview();
       return;
@@ -234,13 +228,11 @@ function updateImagePreview() {
 
     const testImage = new Image();
     testImage.onload = () => {
-      console.log("admin preview loaded", { url });
       homestayImagePreviewImg.src = url;
       homestayImagePreview.classList.remove("hidden");
       homestayImageWarning.classList.add("hidden");
     };
     testImage.onerror = () => {
-      console.log("admin preview load failed", { url, index });
       if (index < fallbackUrls.length) {
         tryLoad(fallbackUrls[index], index + 1);
         return;

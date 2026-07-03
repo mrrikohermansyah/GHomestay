@@ -249,8 +249,6 @@ function normalizeImageUrl(url) {
 
 function applyImageFallback(img, url, fallbackUrl) {
   const normalized = normalizeImageUrl(url);
-  console.log("app applyImageFallback", { url, normalized, fallbackUrl });
-
   // Clean up the fallback URL too
   const cleanFallback = normalizeImageUrl(fallbackUrl) || fallbackUrl;
 
@@ -260,10 +258,6 @@ function applyImageFallback(img, url, fallbackUrl) {
   }
 
   img.onerror = () => {
-    console.warn("app image fallback triggered", {
-      currentSrc: img.src,
-      fallback: cleanFallback,
-    });
     img.onerror = null; // Prevent infinite loops
     img.src = cleanFallback;
   };
@@ -695,6 +689,7 @@ async function handleBooking() {
     await loadSelectedHomestayBookings(selectedHomestay.id);
     createToast("Booking berhasil dibuat. Tunggu persetujuan admin.");
     detailModal.classList.add("hidden");
+    detailModal.classList.remove("flex");
     checkinDate.value = "";
     checkoutDate.value = "";
     await renderBookingList();
@@ -779,6 +774,7 @@ async function openDetailModal(homestay) {
       .join("") ||
     '<p class="text-slate-500">Tidak ada fasilitas terdaftar.</p>';
   detailModal.classList.remove("hidden");
+  detailModal.classList.add("flex");
 }
 
 function applyFilterAndSort(items) {
@@ -948,7 +944,10 @@ showMyBookings.addEventListener("click", () =>
 closeBookingSection.addEventListener("click", () =>
   bookingSection.classList.add("hidden"),
 );
-closeModal.addEventListener("click", () => detailModal.classList.add("hidden"));
+closeModal.addEventListener("click", () => {
+  detailModal.classList.add("hidden");
+  detailModal.classList.remove("flex");
+});
 checkinDate.addEventListener("change", validateDateSelection);
 checkoutDate.addEventListener("change", validateDateSelection);
 searchInput.addEventListener("input", renderHomestays);
