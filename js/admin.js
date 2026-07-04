@@ -395,7 +395,7 @@ function renderBookingRows() {
       );
     });
   });
-  bookingTable.querySelectorAll(".deleteBooking").forEach((button) => {
+  bookingTable.querySelectorAll("button:not([data-action])").forEach((button) => {
     button.addEventListener("click", async () => {
       const bookingId = button.dataset.id;
       await deleteBooking(bookingId);
