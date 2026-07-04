@@ -1,4 +1,4 @@
-const CACHE_NAME = 'homestay-pwa-v1';
+const CACHE_NAME = 'homestay-pwa-v2';
 const ASSETS = [
     './',
     './index.html',
@@ -8,13 +8,16 @@ const ASSETS = [
     './assets/icons/app-icon.svg',
     './js/app.js',
     './js/admin.js',
-    './js/utils.js'
+    './js/utils.js',
+    './js/firebaseConfig.js',
+    './version.html'
 ];
 
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS))
     );
+    self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
@@ -25,7 +28,7 @@ self.addEventListener('activate', (event) => {
                     .filter((cacheName) => cacheName !== CACHE_NAME)
                     .map((cacheName) => caches.delete(cacheName))
             )
-        )
+        ).then(() => self.clients.claim())
     );
 });
 
@@ -33,24 +36,24 @@ self.addEventListener('fetch', (event) => {
     if (event.request.method !== 'GET') return;
 
     event.respondWith(
-        caches.match(event.request).then((cachedResponse) => {
-            if (cachedResponse) return cachedResponse;
-
+        caches.open(CACHE_NAME).then((cache) => {
             return fetch(event.request)
                 .then((networkResponse) => {
-                    if (!networkResponse || networkResponse.status !== 200 || networkResponse.type === 'opaque') {
-                        return networkResponse;
+                    if (networkResponse && networkResponse.status === 200) {
+                        cache.put(event.request, networkResponse.clone());
                     }
-
-                    const responseClone = networkResponse.clone();
-                    caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
                     return networkResponse;
                 })
                 .catch(() => {
-                    if (event.request.mode === 'navigate') {
-                        return caches.match('./index.html');
-                    }
-                    return null;
+                    return caches.match(event.request).then((cachedResponse) => {
+                        if (cachedResponse) {
+                            return cachedResponse;
+                        }
+                        if (event.request.mode === 'navigate') {
+                            return caches.match('./index.html');
+                        }
+                        return null;
+                    });
                 });
         })
     );

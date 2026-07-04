@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <title>Admin Dashboard - Homestay Booking</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <meta name="theme-color" content="#0f172a" />
@@ -10,16 +16,16 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="Homestay Booking" />
-    <link rel="manifest" href="manifest.json" />
-    <link rel="icon" href="assets/imgs/logo.png" />
-    <link rel="apple-touch-icon" href="assets/icons/app-icon.svg" />
+    <link rel="manifest" href="manifest.json?v=2" />
+    <link rel="icon" href="assets/imgs/logo.png?v=2" />
+    <link rel="apple-touch-icon" href="assets/icons/app-icon.svg?v=2" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css?v=2" />
   </head>
   <body class="bg-slate-50 text-slate-900">
     <div class="min-h-screen">
@@ -448,9 +454,9 @@
       </div>
     </div>
 
-    <script type="module" src="js/admin.js"></script>
+    <script type="module" src="js/admin.js?v=2"></script>
     <script>
-      fetch("version.html")
+      fetch("version.html?v=2")
         .then((response) => response.text())
         .then((html) => {
           document.body.insertAdjacentHTML("beforeend", html);
