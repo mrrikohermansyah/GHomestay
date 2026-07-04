@@ -110,9 +110,10 @@ logoutButton.addEventListener("click", async () => {
   window.location.href = "index.html";
 });
 createHomestayButton.addEventListener("click", () => openHomestayForm());
-closeHomestayModal.addEventListener("click", () =>
-  homestayFormModal.classList.add("hidden"),
-);
+closeHomestayModal.addEventListener("click", () => {
+  homestayFormModal.classList.add("hidden");
+  homestayFormModal.classList.remove("flex");
+});
 
 function formatCurrencyInput(input) {
   const cursorPosition = input.selectionStart || 0;
@@ -395,12 +396,14 @@ function renderBookingRows() {
       );
     });
   });
-  bookingTable.querySelectorAll("button:not([data-action])").forEach((button) => {
-    button.addEventListener("click", async () => {
-      const bookingId = button.dataset.id;
-      await deleteBooking(bookingId);
+  bookingTable
+    .querySelectorAll("button:not([data-action])")
+    .forEach((button) => {
+      button.addEventListener("click", async () => {
+        const bookingId = button.dataset.id;
+        await deleteBooking(bookingId);
+      });
     });
-  });
 }
 
 async function loadHomestays() {
@@ -469,6 +472,7 @@ async function openHomestayForm(id = null) {
     updateImagePreview();
   }
   homestayFormModal.classList.remove("hidden");
+  homestayFormModal.classList.add("flex");
 }
 
 async function saveHomestay() {
@@ -540,6 +544,7 @@ async function saveHomestay() {
       createToast("Homestay berhasil dibuat.");
     }
     homestayFormModal.classList.add("hidden");
+    homestayFormModal.classList.remove("flex");
     await loadHomestays();
   } catch (error) {
     createToast("Gagal menyimpan homestay: " + error.message, "error");
@@ -582,65 +587,42 @@ function extractDriveFileId(url) {
 }
 
 function normalizeImageUrl(url) {
-  const trimmed = (url || "").trim();
-  if (!trimmed) return "";
+  // Clean up the URL first: remove any backticks, quotes, and extra whitespace
+  let cleaned = (url || "")
+    .trim()
+    .replace(/^[`"']+|[`"']+$/g, "")
+    .trim();
+  if (!cleaned) return "";
 
-  let normalized = trimmed;
-  if (!/^https?:\/\//i.test(normalized)) {
-    normalized = `https://${normalized}`;
+  // Ensure we have a proper protocol
+  if (!/^https?:\/\//i.test(cleaned)) {
+    cleaned = `https://${cleaned}`;
   }
 
   try {
-    const parsed = new URL(normalized);
+    const parsed = new URL(cleaned);
     const hostname = parsed.hostname.toLowerCase();
 
+    // Handle Google Drive URLs
     if (
       hostname.includes("drive.google.com") ||
-      hostname.includes("docs.google.com")
-    ) {
-      const id = extractDriveFileId(normalized);
-      if (id) {
-        return `https://drive.google.com/uc?export=view&id=${id}`;
-      }
-      if (parsed.pathname.includes("/uc")) {
-        return normalized;
-      }
-      if (parsed.pathname.includes("/open")) {
-        const openId = parsed.searchParams.get("id");
-        return openId
-          ? `https://drive.google.com/uc?export=view&id=${openId}`
-          : normalized;
-      }
-    }
-
-    if (
+      hostname.includes("docs.google.com") ||
       hostname.includes("drive.usercontent.google.com") ||
       hostname.includes("usercontent.google.com")
     ) {
-      const id = extractDriveFileId(normalized);
-      return id
-        ? `https://drive.google.com/uc?export=download&id=${id}`
-        : normalized;
+      const id = extractDriveFileId(cleaned);
+      if (id) {
+        // Use the thumbnail URL with 1254px width (matching user's photo resolution)
+        return `https://drive.google.com/thumbnail?id=${id}&sz=w1254`;
+      }
     }
 
-    if (
-      hostname.includes("googleusercontent.com") ||
-      hostname.includes("dropbox.com") ||
-      hostname.includes("imgur.com") ||
-      hostname.includes("i.ibb.co") ||
-      hostname.includes("cdn")
-    ) {
-      return normalized;
-    }
-
-    if (parsed.protocol === "http:" || parsed.protocol === "https:") {
-      return normalized;
-    }
+    // For other URLs, just use them as is
+    return cleaned;
   } catch (err) {
+    console.warn("Invalid URL:", url, err);
     return "";
   }
-
-  return "";
 }
 
 function isDateRangeOverlapping(startA, endA, startB, endB) {
